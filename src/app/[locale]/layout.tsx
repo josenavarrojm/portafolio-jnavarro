@@ -7,6 +7,11 @@ import {
   bebasNeue,
   archivoBlack,
   spaceGrotesk,
+  oswald,
+  leagueSpartan,
+  barlowCondensed,
+  archivoNarrow,
+  teko,
 } from "@/fonts/fonts";
 import "./globals.css";
 import { NextIntlClientProvider, hasLocale } from "next-intl";
@@ -40,7 +45,13 @@ export default async function LocaleLayout({
   return (
     <html lang={locale}>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${bebasNeue.variable} ${spaceGrotesk.variable} ${anton.variable} ${archivoBlack.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${bebasNeue.variable} ${spaceGrotesk.variable} ${anton.variable} ${archivoBlack.variable}
+        ${oswald.variable}
+        ${leagueSpartan.variable}
+        ${barlowCondensed.variable}
+        ${archivoNarrow.variable}
+        ${teko.variable}
+        antialiased`}
       >
         <NextIntlClientProvider messages={messages}>
           {children}

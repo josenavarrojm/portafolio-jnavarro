@@ -1,5 +1,6 @@
 "use client";
 
+import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 import { SocialIcon, SocialIconProps } from "react-social-icons";
 
@@ -23,19 +24,17 @@ const socialLinks: SocialLink[] = [
 ];
 
 export default function SocialIcons() {
-  const [isDarkMode, setIsDarkMode] = useState(false);
+  const { theme, systemTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
-    setIsDarkMode(mediaQuery.matches);
-
-    const handleChange = (e: MediaQueryListEvent) => {
-      setIsDarkMode(e.matches);
-    };
-
-    mediaQuery.addEventListener("change", handleChange);
-    return () => mediaQuery.removeEventListener("change", handleChange);
+    setMounted(true);
   }, []);
+
+  if (!mounted) return null;
+
+  const currentTheme = theme === "system" ? systemTheme : theme;
+  const isDarkMode = currentTheme === "dark";
 
   return (
     <div className="flex space-x-4 self-end">
@@ -55,10 +54,13 @@ export default function SocialIcons() {
             path: link.fallback.path,
           };
         }
+
         return (
           <div
             key={idx}
-            className="rounded-full transition-all duration-300 hover:scale-110 hover:bg-white hover:invert dark:hover:bg-black p-1 hover:animate-pulse hover:animate-infinite hover:animate-duration-[1500ms] hover:animate-delay-200 hover:animate-ease-out"
+            className={`rounded-full transition-all duration-300 hover:scale-110 p-1 hover:invert
+              ${isDarkMode ? "hover:bg-black" : "hover:bg-white"}
+              hover:animate-pulse hover:animate-infinite hover:animate-duration-[1500ms] hover:animate-delay-200 hover:animate-ease-out`}
           >
             <SocialIcon {...props} />
           </div>

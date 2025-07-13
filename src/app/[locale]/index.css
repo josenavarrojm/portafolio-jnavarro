@@ -103,44 +103,42 @@
 }
 
 /* 🌙 Dark Mode */
-@media (prefers-color-scheme: dark) {
-  .div-parent {
-    background-image: radial-gradient(
-        circle at 10% 30%,
-        #13002266 0%,
-        transparent 70%
-      ),
-      radial-gradient(circle at 75% 65%, #001e1466 0%, transparent 70%),
-      radial-gradient(circle at 45% 85%, #021a0066 0%, transparent 70%),
-      radial-gradient(circle at 60% 20%, #15120066 0%, transparent 70%),
-      linear-gradient(135deg, #1b000066, #300b0b66),
-      linear-gradient(to right, #000e1e66, #04001666);
-    animation: gentleDrift 30s ease-in-out infinite;
-  }
+.dark .div-parent {
+  background-image: radial-gradient(
+      circle at 10% 30%,
+      #13002266 0%,
+      transparent 70%
+    ),
+    radial-gradient(circle at 75% 65%, #001e1466 0%, transparent 70%),
+    radial-gradient(circle at 45% 85%, #021a0066 0%, transparent 70%),
+    radial-gradient(circle at 60% 20%, #15120066 0%, transparent 70%),
+    linear-gradient(135deg, #1b000066, #300b0b66),
+    linear-gradient(to right, #000e1e66, #04001666);
+  animation: gentleDrift 30s ease-in-out infinite;
+}
 
-  /* /* Cuadricula */
-  .div-parent::before {
-    background-image: linear-gradient(
-        to right,
-        rgba(255, 255, 255, 0.04) 1px,
-        transparent 1px
-      ),
-      linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
-    animation: gridFloat 5s linear infinite;
-  }
+/* /* Cuadricula */
+.dark .div-parent::before {
+  background-image: linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0.04) 1px,
+      transparent 1px
+    ),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  animation: gridFloat 5s linear infinite;
+}
 
-  .button-link {
-    color: #fff;
-    background: rgba(255, 255, 255, 0.08);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-  }
+.dark .button-link {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
 
-  .button-link::before {
-    background: linear-gradient(
-      120deg,
-      rgba(255, 255, 255, 0.15),
-      rgba(255, 255, 255, 0.05),
-      rgba(255, 255, 255, 0.15)
-    );
-  }
+.dark .button-link::before {
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0.15),
+    rgba(255, 255, 255, 0.05),
+    rgba(255, 255, 255, 0.15)
+  );
 }

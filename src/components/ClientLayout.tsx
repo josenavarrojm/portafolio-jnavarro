@@ -1,9 +1,9 @@
-// src/components/ClientLayout.tsx
 "use client";
 
-import { useEffect, useState } from "react";
-import Loader from "./loader";
+import { useEffect, useRef, useState } from "react";
+import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
+import Loader from "./loader";
 import { LoaderContext } from "./LoaderContext";
 
 export default function ClientLayout({
@@ -12,11 +12,59 @@ export default function ClientLayout({
   children: React.ReactNode;
 }) {
   const [loading, setLoading] = useState(true);
+  const pathname = usePathname();
 
+  const previousPath = useRef<string | null>(null);
+  const [direction, setDirection] = useState<"forward" | "backward">("forward");
+
+  // Detectar si vamos hacia adelante o atrás
+  useEffect(() => {
+    if (previousPath.current) {
+      const prev = previousPath.current;
+      const current = pathname;
+
+      // Aquí puedes personalizar el orden "lógico" de tus rutas
+      const routeOrder = ["/", "/about", "/projects", "/contact"];
+      const prevIndex = routeOrder.indexOf(prev);
+      const currIndex = routeOrder.indexOf(current);
+
+      if (currIndex > prevIndex) {
+        setDirection("forward");
+      } else {
+        setDirection("backward");
+      }
+    }
+    previousPath.current = pathname;
+  }, [pathname]);
+
+  // Loader inicial
   useEffect(() => {
     const timer = setTimeout(() => setLoading(false), 2000);
     return () => clearTimeout(timer);
   }, []);
+
+  // Bloqueamos scroll mientras hay animación (opcional)
+  useEffect(() => {
+    if (loading) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+  }, [loading]);
+
+  // Variants de animación por dirección
+  const variants = {
+    forward: {
+      initial: { opacity: 0, scale: 0.9 },
+      animate: { opacity: 1, scale: 1 },
+      exit: { opacity: 0, scale: 0.9 },
+    },
+    backward: {
+      initial: { opacity: 0, scale: 0.9 },
+      animate: { opacity: 1, scale: 1 },
+      exit: { opacity: 0, scale: 0.9 },
+    },
+  };
 
   return (
     <LoaderContext.Provider value={{ done: !loading }}>
@@ -35,14 +83,20 @@ export default function ClientLayout({
         )}
       </AnimatePresence>
 
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: loading ? 0 : 1 }}
-        transition={{ duration: 0.5, delay: loading ? 0.2 : 0 }}
-        className={loading ? "pointer-events-none" : ""}
-      >
-        {children}
-      </motion.div>
+      {/* Transición de páginas con dirección */}
+      <AnimatePresence mode="wait">
+        {!loading && (
+          <motion.div
+            key={pathname}
+            initial={variants[direction].initial}
+            animate={variants[direction].animate}
+            exit={variants[direction].exit}
+            transition={{ duration: 0.5, ease: "easeInOut" }}
+          >
+            {children}
+          </motion.div>
+        )}
+      </AnimatePresence>
     </LoaderContext.Provider>
   );
 }

@@ -1,3 +1,4 @@
+import BtnHome from "@/components/BtnHome";
 import GridBackground from "@/components/GridBg";
 import NavBar from "@/components/NavBar";
 import { useTranslations } from "next-intl";
@@ -8,10 +9,11 @@ export default function AboutPage() {
   return (
     <GridBackground>
       <NavBar />
-      <div className="h-full w-full p-12 bg-amber-700">
+      <div className="h-full w-full p-12  animate-fade-down animate-ease-in-out animate-delay-200">
         <h1>{t("title")}</h1>
         <p>{t("description")}</p>
       </div>
+      <BtnHome />
     </GridBackground>
   );
 }

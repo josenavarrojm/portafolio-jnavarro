@@ -14,5 +14,10 @@
   "AboutPage": {
     "title": "About me",
     "description": "This is me"
+  },
+  "Contact": {
+    "contact": "Contact",
+    "email": "Mail",
+    "socialmedia": "Social Medias"
   }
 }

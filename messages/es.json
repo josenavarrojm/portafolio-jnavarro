@@ -14,5 +14,10 @@
   "AboutPage": {
     "title": "Acerca de mí",
     "description": "Soy yo"
+  },
+  "Contact": {
+    "contact": "Contáctame",
+    "email": "E-mail",
+    "socialmedia": "Redes Sociales"
   }
 }

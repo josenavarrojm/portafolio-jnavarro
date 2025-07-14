@@ -116,7 +116,7 @@ export default function Page() {
               <h1 className="ml-2">{t("info")} </h1>
             </Link>
             <Link
-              href="/"
+              href="/contact"
               className="button-link flex flex-row justify-start items-center  backdrop-blur-3xl animate-fade-left animate-ease-in-out animate-delay-[800ms]"
             >
               <Send />

@@ -1,7 +1,6 @@
 "use client";
 import { Link } from "@/i18n/routing";
 import "./index.css";
-import SocialIcons from "@/components/SocialIcon";
 import {
   BrainCircuit,
   CircleUserRound,
@@ -13,11 +12,11 @@ import {
   Send,
   Workflow,
 } from "lucide-react";
-import ThemeToggle from "@/components/ThemeToggle";
 import { useTheme } from "next-themes";
 import { useTranslations } from "next-intl";
 import { useEffect, useState } from "react";
-import LocaleSwitcher from "@/components/LocaleSwitcher";
+import NavBar from "@/components/NavBar";
+import GridBackground from "@/components/GridBg";
 
 export default function Page() {
   const { theme, systemTheme } = useTheme();
@@ -34,19 +33,8 @@ export default function Page() {
   if (!mounted) return null;
 
   return (
-    <div className="div-parent h-screen w-full flex flex-col justify-between items-end text-center font-(family-name:--font-bebas) transition-all duration-200 ease-in-out">
-      <div className="flex flex-row md:justify-between justify-between items-center pt-8 px-10 space-x-4 self-end w-full animate-fade-down animate-ease-out animate-duration-[1100ms] z-[999]">
-        <div className="flex flex-row justify-center items-center space-x-4 self-end">
-          <LocaleSwitcher />
-          <ThemeToggle />
-        </div>
-        <SocialIcons />
-
-        {/* <div className="flex flex-row h-8 items-center justify-center">
-          <MapPin size={20} />
-          <h2 className=" ml-0.5">Colombia</h2>
-        </div> */}
-      </div>
+    <GridBackground>
+      <NavBar />
       <main className="child-main flex flex-col md:flex-row md:justify-around justify-around items-center md:pb-14 pb-[10em] md:w-[90%] w-full h-full">
         <section className="flex flex-col justify-center items-center space-y-4 w-full md:w-[50%] md:h-full">
           <div className="mb-12">
@@ -117,7 +105,7 @@ export default function Page() {
               <h1 className="ml-2">{t("blog")} </h1>
             </Link>
             <Link
-              href="/"
+              href="/about"
               className="button-link flex flex-row justify-start items-center hover:animate-pulse backdrop-blur-3xl"
             >
               <CircleUserRound />
@@ -133,6 +121,6 @@ export default function Page() {
           </section>
         </section>
       </main>
-    </div>
+    </GridBackground>
   );
 }

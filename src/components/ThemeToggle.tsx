@@ -45,8 +45,8 @@ export default function ThemeToggle() {
       <div
         className={`absolute z-10 mt-2 w-32 origin-top-right rounded-xl  shadow-xs ${
           isDark
-            ? "bg-[#000000] shadow-[#6bff6b92]"
-            : "bg-[#ffffff] shadow-[#1212ab3f]"
+            ? "bg-[rgb(0,20,20)] shadow-[#6bff6b92]"
+            : "bg-[rgb(240,240,195)] shadow-[#1212ab3f]"
         }  opacity-0 group-hover:opacity-100 scale-95 group-hover:scale-100 transition-all duration-300 pointer-events-none group-hover:pointer-events-auto`}
       >
         <div className="flex flex-col">

@@ -10,5 +10,9 @@
     "info": "About me",
     "contact": "Contact",
     "blog": "blog"
+  },
+  "AboutPage": {
+    "title": "About me",
+    "description": "This is me"
   }
 }

@@ -10,5 +10,9 @@
     "info": "Sobre mí",
     "contact": "Contacto",
     "blog": "blog"
+  },
+  "AboutPage": {
+    "title": "Acerca de mí",
+    "description": "Soy yo"
   }
 }

@@ -1,6 +1,7 @@
 "use client";
 import BtnHome from "@/components/BtnHome";
 import GridBackground from "@/components/GridBg";
+import NavBar from "@/components/NavBar";
 import { ArrowRight, MailPlus, Podcast } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { useTheme } from "next-themes";
@@ -23,13 +24,14 @@ export default function Contact() {
   const isDarkMode = currentTheme === "dark";
   return (
     <GridBackground>
-      <div className="md:pt-[6rem] pt-[2rem] pb-[1rem] w-screen">
+      <NavBar />
+      <div className="md:-mt-6 -mt-[1rem] pb-[1rem] w-screen">
         <h1 className="animate-fade-down animate-delay-400 md:text-[4rem] text-[3rem]">
           {t("contact")}
         </h1>
       </div>
       <div className="flex md:flex-row flex-col justify-center items-center md:px-14 px-8 w-full h-full">
-        <section className="w-full md:h-full pb-8 ">
+        <section className="w-full md:h-full pb-4">
           <section className="w-[9rem] flex flex-row items-center md:text-[2rem] text-[1.5rem] font-(family-name:--font-spaceGrotesk) animate-fade-right animate-delay-600">
             <h1 className="mr-2">{t("email")}</h1>
             <MailPlus size={30} />

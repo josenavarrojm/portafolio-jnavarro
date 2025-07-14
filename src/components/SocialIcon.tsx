@@ -3,6 +3,7 @@
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 import { SocialIcon, SocialIconProps } from "react-social-icons";
+import { usePathname } from "next/navigation";
 
 interface SocialLink {
   url: string;
@@ -26,6 +27,7 @@ const socialLinks: SocialLink[] = [
 export default function SocialIcons() {
   const { theme, systemTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     setMounted(true);
@@ -36,9 +38,16 @@ export default function SocialIcons() {
   const currentTheme = theme === "system" ? systemTheme : theme;
   const isDarkMode = currentTheme === "dark";
 
+  const filteredLinks = socialLinks.filter((link) => {
+    const isLinkedIn = link.url.includes("linkedin");
+    const isContactPage =
+      pathname === "/contact" || pathname.endsWith("/contact");
+    return isContactPage ? !isLinkedIn : true;
+  });
+
   return (
     <div className="flex space-x-4 self-end">
-      {socialLinks.map((link, idx) => {
+      {filteredLinks.map((link, idx) => {
         const props: SocialIconProps = {
           url: link.url,
           target: "_blank",

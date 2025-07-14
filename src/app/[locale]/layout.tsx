@@ -19,6 +19,7 @@ import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 import { getMessages } from "next-intl/server";
+import ClientLayout from "@/components/ClientLayout";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -61,7 +62,7 @@ export default async function LocaleLayout({
           disableTransitionOnChange
         >
           <NextIntlClientProvider messages={messages}>
-            {children}
+            <ClientLayout>{children}</ClientLayout>
           </NextIntlClientProvider>
         </ThemeProvider>
       </body>

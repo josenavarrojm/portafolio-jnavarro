@@ -33,7 +33,8 @@ export default function ThemeToggle() {
         className={`p-3 rounded-full transition-all duration-300
           hover:scale-110 hover:invert
           ${isDark ? "hover:bg-black" : "hover:bg-white"}
-          hover:animate-pulse hover:animate-infinite
+          
+          animate-fade-up animate-ease-in-out animate-delay-[700ms]
           hover:animate-duration-[1500ms] hover:animate-delay-200 hover:animate-ease-out
         `}
         aria-label="Abrir selector de tema"

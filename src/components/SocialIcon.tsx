@@ -60,7 +60,9 @@ export default function SocialIcons() {
             key={idx}
             className={`rounded-full transition-all duration-300 hover:scale-110 p-1 hover:invert
               ${isDarkMode ? "hover:bg-black" : "hover:bg-white"}
-              hover:animate-pulse hover:animate-infinite hover:animate-duration-[1500ms] hover:animate-delay-200 hover:animate-ease-out`}
+              ${
+                idx % 2 == 0 ? "animate-fade-down" : "animate-fade-up"
+              } animate-ease-in-out animate-delay-[1000ms] hover:animate-duration-[1500ms] hover:animate-delay-200 hover:animate-ease-out`}
           >
             <SocialIcon {...props} />
           </div>

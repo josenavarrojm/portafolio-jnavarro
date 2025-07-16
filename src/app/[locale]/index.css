@@ -20,8 +20,69 @@
 }
 
 .div-parent {
-  position: relative;
   height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 0;
+
+  /* ☀️ Fondo modo claro */
+  background-image: radial-gradient(
+      circle at 20% 30%,
+      #fffbe6 0%,
+      transparent 70%
+    ),
+    radial-gradient(circle at 80% 70%, #e8fff7 0%, transparent 70%),
+    radial-gradient(circle at 40% 80%, #e6ffe4 0%, transparent 70%),
+    radial-gradient(circle at 70% 60%, #f4e5ff 0%, transparent 70%),
+    linear-gradient(135deg, #feffe5, #d0c2c2),
+    linear-gradient(to right, #ecf5ff, #d8d6e2);
+  background-size: 300% 300%;
+  background-repeat: no-repeat;
+  animation: gentleDrift 3 0s ease-in-out infinite;
+  transition: all 200ms ease-in-out;
+}
+.div-parent .about {
+  height: auto;
+}
+
+/* Cuadrícula */
+.div-parent::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-image: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.03) 1px,
+      transparent 1px
+    ),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+  background-size: 24px 24px;
+  background-repeat: repeat;
+  animation: gridFloat 5s linear infinite;
+}
+
+/* 🌙 Dark Mode */
+.dark .div-parent {
+  background-image: radial-gradient(
+      circle at 10% 30%,
+      #13002266 0%,
+      transparent 70%
+    ),
+    radial-gradient(circle at 75% 65%, #001e1466 0%, transparent 70%),
+    radial-gradient(circle at 45% 85%, #021a0066 0%, transparent 70%),
+    radial-gradient(circle at 60% 20%, #15120066 0%, transparent 70%),
+    linear-gradient(135deg, #1b000066, #300b0b66),
+    linear-gradient(to right, #000e1e66, #04001666);
+  animation: gentleDrift 30s ease-in-out infinite;
+}
+
+/*//////need Scroll Pages///////*/
+.div-parent-scrolled {
+  height: auto;
   width: 100%;
   overflow: hidden;
   display: flex;
@@ -47,7 +108,7 @@
 }
 
 /* Cuadrícula */
-.div-parent::before {
+.div-parent-scrolled::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -60,6 +121,31 @@
     linear-gradient(to bottom, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
   background-size: 24px 24px;
   background-repeat: repeat;
+  animation: gridFloat 5s linear infinite;
+}
+
+/* 🌙 Dark Mode */
+.dark .div-parent-scrolled {
+  background-image: radial-gradient(
+      circle at 10% 30%,
+      #13002266 0%,
+      transparent 70%
+    ),
+    radial-gradient(circle at 75% 65%, #001e1466 0%, transparent 70%),
+    radial-gradient(circle at 45% 85%, #021a0066 0%, transparent 70%),
+    radial-gradient(circle at 60% 20%, #15120066 0%, transparent 70%),
+    linear-gradient(135deg, #1b000066, #300b0b66),
+    linear-gradient(to right, #000e1e66, #04001666);
+  animation: gentleDrift 30s ease-in-out infinite;
+}
+/*///////////////Cuadricula scrolled*/
+.dark .div-parent-scrolled::before {
+  background-image: linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0.04) 1px,
+      transparent 1px
+    ),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
   animation: gridFloat 5s linear infinite;
 }
 
@@ -100,21 +186,6 @@
 .button-link:hover {
   box-shadow: 0 2px 2px rgba(0, 0, 0, 0.15);
   transform: scale(1.02);
-}
-
-/* 🌙 Dark Mode */
-.dark .div-parent {
-  background-image: radial-gradient(
-      circle at 10% 30%,
-      #13002266 0%,
-      transparent 70%
-    ),
-    radial-gradient(circle at 75% 65%, #001e1466 0%, transparent 70%),
-    radial-gradient(circle at 45% 85%, #021a0066 0%, transparent 70%),
-    radial-gradient(circle at 60% 20%, #15120066 0%, transparent 70%),
-    linear-gradient(135deg, #1b000066, #300b0b66),
-    linear-gradient(to right, #000e1e66, #04001666);
-  animation: gentleDrift 30s ease-in-out infinite;
 }
 
 /* /* Cuadricula */

@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
 import Loader from "./loader";
 import { LoaderContext } from "./LoaderContext";
+import CustomCursor from "./CustomCursor";
 
 export default function ClientLayout({
   children,
@@ -68,6 +69,7 @@ export default function ClientLayout({
 
   return (
     <LoaderContext.Provider value={{ done: !loading }}>
+      <CustomCursor />
       <AnimatePresence>
         {loading && (
           <motion.div

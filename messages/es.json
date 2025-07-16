@@ -13,7 +13,14 @@
   },
   "AboutPage": {
     "title": "Acerca de mí",
-    "description": "Soy yo"
+    "description1": "Soy Ingeniero Electrónico con una fuerte orientación hacia la Ciencia de Datos, la automatización de procesos con RPA y la Ingeniería de Machine Learning, áreas que considero profundamente conectadas entre sí. Me apasiona cómo estas tecnologías se complementan para resolver problemas complejos mediante soluciones eficientes, escalables y centradas en generar valor real para equipos y organizaciones.",
+    "description2": "Mi enfoque combina pensamiento analítico, creatividad tecnológica y un compromiso firme con la mejora continua. A esto se suman habilidades clave como mi capacidad de aprendizaje acelerado, mi comunicación asertiva y una fuerte motivación por liderar equipos de alto rendimiento.",
+    "description3": "Además, soy una persona en constante evolución, lo que me ha llevado a desarrollar competencias en otras áreas como el desarrollo web y el desarrollo de software multiplataforma, ampliando así mi capacidad para aportar soluciones integrales en distintos contextos tecnológicos.",
+    "title1": "Ingeniero electrónico",
+    "title2": "Científico de datos",
+    "title3": "Desarrollador RPA",
+    "title4": "Ingeniero Machine Learning",
+    "certificates": "Certificados Profesionales"
   },
   "Contact": {
     "contact": "Contáctame",

@@ -121,7 +121,7 @@ function SocialContacts({ isDarkMode }: Props) {
           tabIndex={0}
           aria-label={`Link to ${link.label}`}
           title={link.label}
-          className={`cursor-pointer flex justify-between items-center gap-3 rounded-xl p-2 transition-transform duration-300 hover:scale-105 group
+          className={`cursor-pointer cursor-interactive flex justify-between items-center gap-3 rounded-xl p-2 transition-transform duration-300 hover:scale-105 group
     ${isDarkMode ? "hover:bg-black" : "hover:bg-[#eeee9a]"}
     animate-fade-left animate-ease-in-out ${delayClasses[idx]}
   `}

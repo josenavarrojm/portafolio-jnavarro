@@ -324,7 +324,7 @@ export default function AboutPage() {
           </div>
         </section>
       </div>
-      <footer className="h-max py-24 md:text-[1.5rem] text-[1.4em] justify-center flex flex-row items-center py-4 bg-linear-to-b from-red-900/30 to-red-900/40 md:w-full font-(family-name:--font-teko)">
+      <footer className="h-max py-24 md:text-[1.5rem] text-[1.4em] justify-center flex flex-row items-center bg-linear-to-b from-red-900/30 to-red-900/40 md:w-full font-(family-name:--font-teko)">
         <Link
           href="/contact"
           data-aos="fade-up"

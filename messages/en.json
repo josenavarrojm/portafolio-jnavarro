@@ -4,7 +4,7 @@
     "tagline": "I transform data into intelligent models that drive decisions, automation, and real value.",
     "title1": "Electronic Engineer",
     "title2": "Data Scientist",
-    "title3": "RPA Developer",
+    "title3": "Software Developer",
     "title4": "Machine Learning Engineer",
     "projects": "Projects",
     "info": "About me",
@@ -34,7 +34,9 @@
     "exp2_descr": "As an intern, I developed a web-based recommendation system using Machine Learning to personalize the user experience in an e-commerce setting. I built a REST API with FastAPI to serve predictive models, integrating backend and frontend into a seamless interface using optimized JSON structures. I actively contributed to the functional design of the MVP, applying user testing and business feedback to iterate on the product. I collaborated with both technical and non-technical teams, clearly communicating the scope and limitations of the implemented models.",
     "university": "University of Magdalena",
     "empre1": "Ladys Confecciones",
-    "education": "Education"
+    "contact": "Contact",
+    "education": "Education",
+    "footer_contact_phrase": "Every great project starts with a conversation. You can contact me at"
   },
   "Contact": {
     "contact": "Contact",

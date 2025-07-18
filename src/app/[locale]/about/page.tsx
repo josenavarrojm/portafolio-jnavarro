@@ -6,6 +6,7 @@ import "@/app/[locale]/index.css";
 import { ArrowRight } from "lucide-react";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
+import Link from "next/link";
 
 export default function AboutPage() {
   const t = useTranslations("AboutPage");
@@ -149,19 +150,21 @@ export default function AboutPage() {
 
   const skills = t("exp1_skills").split(", ");
   const skills2 = t("exp2_skills").split(", ");
-  const skillsStyle = `m-2 px-2 bg-amber-900 rounded-xl text-[0.8em]`;
+  const skillsStyle = `m-2 px-2 rounded-xl text-[0.8em] ${
+    isDarkMode ? "bg-amber-900" : "bg-amber-300"
+  }`;
   const expStyle =
     "flex md:flex-row flex-col justify-center items-start md:py-2 md:m-4 mb-2 font-(family-name:--font-teko) font-light";
   const exp_desc = "text-start md:w-[75%] ml-4";
   const h1_style = "text-[1.5em] font-normal tracking-wider";
   const p_style = "";
-  const date_style = "opacity-80 text-[1.1em]";
+  const date_style = "opacity-80 text-[1.1em] md:mt-1";
 
   return (
     <div className="div-parent-scrolled relative flex flex-col justify-between items-end text-center font-(family-name:--font-bebas)">
       <NavBar />
       <div className="w-full md:p-0 bg-[#8880] animate-fade-down animate-ease-in-out animate-delay-200">
-        <section className="flex md:flex-row flex-col px-6 md:h-[34rem] pb-12 font-(family-name:--font-bebas) bg-linear-to-b from-transparent via-transparent via-45% to-teal-500/10">
+        <section className="flex md:flex-row flex-col px-6 md:h-[34rem] pb-12 font-(family-name:--font-bebas) bg-linear-to-b from-transparent to-teal-900/30">
           <div className=" flex flex-col justify-between md:w-[50%] w-full text-start md:px-2 md:order-2 order-1 animate-fade-down animate-delay-[900ms]">
             <section className="md:self-end md:mb-0 mb-8 mt-6 md:mt-0">
               <h1 className="md:text-[4rem] text-[3.4rem] tracking-widest font-bold">
@@ -188,12 +191,12 @@ export default function AboutPage() {
             <p>{t("description3")}</p>
           </div>
         </section>
-        <section className="flex md:flex-row flex-col px-2 md:h-[60rem] pt-12 font-(family-name:--font-bebas) bg-linear-to-b from-teal-500/10 via-transparent via-25% to-purple-500/10 to-95%">
+        <section className="flex md:flex-row flex-col px-2 md:h-[60rem] pt-12 font-(family-name:--font-bebas) bg-linear-to-b from-teal-900/30 to-purple-900/30">
           <div className=" flex flex-col justify-start md:items-end md:w-[50%] w-full text-start md:px-2 animate-fade-down animate-delay-[900ms]">
             <h1
               className="md:text-7xl text-6xl m-4 mb-8 text-start md:w-[50%] font-(family-name:--font-teko) tracking-wide"
               data-aos="fade-up"
-              data-aos-delay="100"
+              data-aos-delay="50"
               data-aos-duration="800"
             >
               {t("experiences")}
@@ -201,14 +204,17 @@ export default function AboutPage() {
           </div>
           <div className="flex flex-col p-4 text-[1.2rem] text-justify md:w-[50%] font-light animate-fade-up animate-delay-[980ms]">
             <div
-              className={`${expStyle}`}
+              className={`${expStyle} md:mb-0 mb-14`}
               data-aos="fade-up"
-              data-aos-delay="100"
+              data-aos-delay="50"
               data-aos-duration="800"
             >
               <h2 className={date_style}>{t("date1")}</h2>
               <div className={exp_desc}>
-                <h1 className={h1_style}>{t("exp1")}</h1>
+                <h1 className={h1_style}>
+                  {t("exp1")} -
+                  <span className="text-2xl opacity-70">{t("university")}</span>
+                </h1>
                 <p className={p_style}>{t("exp1_descr")}</p>
 
                 <div className="flex flex-row flex-wrap">
@@ -226,12 +232,17 @@ export default function AboutPage() {
             <div
               className={expStyle}
               data-aos="fade-up"
-              data-aos-delay="100"
+              data-aos-delay="50"
               data-aos-duration="800"
             >
               <h2 className={date_style}>{t("date2")}</h2>
               <div className={exp_desc}>
-                <h1 className={h1_style}>{t("exp2")}</h1>
+                <h1 className={h1_style}>
+                  {t("exp2")} -
+                  <span className="text-xl inline opacity-70">
+                    {t("empre1")}
+                  </span>
+                </h1>
                 <p className={p_style}>{t("exp2_descr")}</p>
 
                 <div className="flex flex-row flex-wrap">
@@ -247,11 +258,11 @@ export default function AboutPage() {
             </div>
           </div>
         </section>
-        <section className="flex md:flex-row flex-col px-2 md:h-max pt-12 font-(family-name:--font-bebas) bg-linear-to-b from-purple-500/10 to-transparent">
+        <section className="flex md:flex-row flex-col px-2 md:h-max pt-12 font-(family-name:--font-bebas) bg-linear-to-b from-purple-900/30 to-red-900/30">
           <h1
             className="md:order-2 order-1 md:p-8  md:text-5xl text-6xl md:mb-8 text-start md:w-[50%] font-(family-name:--font-teko) tracking-wide"
             data-aos="fade-up"
-            data-aos-delay="100"
+            data-aos-delay="50"
             data-aos-duration="800"
           >
             {t("certificates")}
@@ -261,7 +272,7 @@ export default function AboutPage() {
               return (
                 <div
                   data-aos="zoom-in-up"
-                  data-aos-delay="100"
+                  data-aos-delay="50"
                   data-aos-duration="800"
                   key={cert.url}
                   onClick={() =>
@@ -274,8 +285,8 @@ export default function AboutPage() {
                   <section
                     className={`flex flex-col md:w-full w-full md:h-[8rem] h-[5.5em] justify-center items-start px-2 rounded-md ${
                       isDarkMode
-                        ? "bg-linear-to-b from-transparent from-0% via-[#9a006543] via-10% group-hover:via-[#6a0045f3] group-hover:from-[#6a0045f3] to-[#0a0a0a00] to-95%"
-                        : "bg-linear-to-b from-transparent from-0% via-[#b5fffd70] via-10% group-hover:via-[#85fffd] group-hover:from-[#85fffd] to-[#0000] to-95%"
+                      // ? "bg-linear-to-b from-transparent from-0% via-[#9a006543] via-10% group-hover:via-[#6a0045f3] group-hover:from-[#6a0045f3] to-[#0a0a0a00] to-95%"
+                      // : "bg-linear-to-b from-transparent from-0% via-[#b5fffd70] via-10% group-hover:via-[#85fffd] group-hover:from-[#85fffd] to-[#0000] to-95%"
                     }`}
                   >
                     <h1 className="md:text-[0.8rem] text-[0.8em] tracking-widest max-w-full md:mb-0 mb-1 border-b-1 font-(family-name:--font-spaceGrotesk) truncate overflow-hidden whitespace-nowrap">
@@ -313,6 +324,20 @@ export default function AboutPage() {
           </div>
         </section>
       </div>
+      <footer className="h-max py-24 md:text-[1.5rem] text-[1.4em] justify-center flex flex-row items-center py-4 bg-linear-to-b from-red-900/30 to-red-900/40 md:w-full font-(family-name:--font-teko)">
+        <Link
+          href="/contact"
+          data-aos="fade-up"
+          data-aos-delay="50"
+          data-aos-duration="800"
+          className="ml-2 italic w-full"
+        >
+          {t("footer_contact_phrase")}{" "}
+          <span className="px-2 font-extrabold tracking-widest transition-all duration-300 text-[1.5rem] uppercase border-b-2">
+            {t("contact")}
+          </span>
+        </Link>
+      </footer>
       <BtnHome />
     </div>
   );

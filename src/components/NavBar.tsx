@@ -10,10 +10,6 @@ export default function NavBar() {
         <ThemeToggle />
       </div>
       <SocialIcons />
-      {/* <div className="flex flex-row h-8 items-center justify-center">
-          <MapPin size={20} />
-          <h2 className=" ml-0.5">Colombia</h2>
-        </div> */}
     </div>
   );
 }

@@ -4,7 +4,7 @@
     "tagline": "Transformo datos en modelos inteligentes que impulsan decisiones, automatización y valor real.",
     "title1": "Ingeniero electrónico",
     "title2": "Científico de datos",
-    "title3": "Desarrollador RPA",
+    "title3": "Desarrollador de Software",
     "title4": "Ingeniero Machine Learning",
     "projects": "Proyectos",
     "info": "Sobre mí",
@@ -34,7 +34,9 @@
     "exp2_descr": "Como pasante, desarrollé un sistema de recomendación web basado en Machine Learning para personalizar la experiencia en un entorno e-commerce. Construí una API REST con FastAPI para servir modelos predictivos, integrando backend y frontend en una interfaz funcional y conectada mediante estructuras JSON optimizadas. Participé activamente en el diseño funcional del MVP, aplicando pruebas de usuario y retroalimentación del negocio para iterar sobre el producto. Colaboré con equipos técnicos y no técnicos, comunicando de forma clara el alcance y las limitaciones de los modelos implementados.",
     "university": "Universidad del Magdalena",
     "empre1": "Ladys Confecciones",
-    "education": "Educación"
+    "contact": "Contacto",
+    "education": "Educación",
+    "footer_contact_phrase": "Cada gran proyecto comienza con una conversación. Puedes contactarme en"
   },
   "Contact": {
     "contact": "Contáctame",

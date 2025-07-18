@@ -6,7 +6,6 @@ import "@/app/[locale]/index.css";
 import { ArrowRight } from "lucide-react";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
 
 export default function AboutPage() {
   const t = useTranslations("AboutPage");
@@ -81,25 +80,6 @@ export default function AboutPage() {
       ],
     },
     {
-      name: "Fintech: Foundations & Applications of Financial Technology",
-      entity: "Wharton School of the University of Pennsylvania",
-      url: "https://coursera.org/share/36b7262e13fe16e01f368157de0f6c3b",
-      skills: [
-        "Financial Analysis",
-        "Emerging Technologies",
-        "Technology Strategies",
-        "Financial Market",
-        "Lending and Underwriting",
-        "Cryptography",
-        "Credit/Debit Card Processing",
-        "Fundraising and Crowdsourcing",
-        "Investments",
-        "Financial Services",
-        "FinTech",
-        "Market Analysis",
-      ],
-    },
-    {
       name: "Meta Front-End Developer",
       entity: "Meta",
       url: "https://coursera.org/share/8296997d1d83d7fda8bbccc1907e6710",
@@ -137,6 +117,25 @@ export default function AboutPage() {
         "TypeScript",
       ],
     },
+    {
+      name: "Fintech: Foundations & Applications of Financial Technology",
+      entity: "Wharton School of the University of Pennsylvania",
+      url: "https://coursera.org/share/36b7262e13fe16e01f368157de0f6c3b",
+      skills: [
+        "Financial Analysis",
+        "Emerging Technologies",
+        "Technology Strategies",
+        "Financial Market",
+        "Lending and Underwriting",
+        "Cryptography",
+        "Credit/Debit Card Processing",
+        "Fundraising and Crowdsourcing",
+        "Investments",
+        "Financial Services",
+        "FinTech",
+        "Market Analysis",
+      ],
+    },
   ];
 
   const delayClasses = [
@@ -148,40 +147,128 @@ export default function AboutPage() {
     `animate-delay-[1300ms]`,
   ];
 
+  const skills = t("exp1_skills").split(", ");
+  const skills2 = t("exp2_skills").split(", ");
+  const skillsStyle = `m-2 px-2 bg-amber-900 rounded-xl text-[0.8em]`;
+  const expStyle =
+    "flex md:flex-row flex-col justify-center items-start md:py-2 md:m-4 mb-2 font-(family-name:--font-teko) font-light";
+  const exp_desc = "text-start md:w-[75%] ml-4";
+  const h1_style = "text-[1.5em] font-normal tracking-wider";
+  const p_style = "";
+  const date_style = "opacity-80 text-[1.1em]";
+
   return (
     <div className="div-parent-scrolled relative flex flex-col justify-between items-end text-center font-(family-name:--font-bebas)">
-      <div className="w-full p-6 bg-[#8880] animate-fade-down animate-ease-in-out animate-delay-200">
-        <NavBar />
-        <section>
-          <h1>{t("title")}</h1>
-          <p>{t("description1")}</p>
-          <p>{t("description2")}</p>
-          <p>{t("description3")}</p>
+      <NavBar />
+      <div className="w-full md:p-0 bg-[#8880] animate-fade-down animate-ease-in-out animate-delay-200">
+        <section className="flex md:flex-row flex-col px-6 md:h-[34rem] pb-12 font-(family-name:--font-bebas) bg-linear-to-b from-transparent via-transparent via-45% to-teal-500/10">
+          <div className=" flex flex-col justify-between md:w-[50%] w-full text-start md:px-2 md:order-2 order-1 animate-fade-down animate-delay-[900ms]">
+            <section className="md:self-end md:mb-0 mb-8 mt-6 md:mt-0">
+              <h1 className="md:text-[4rem] text-[3.4rem] tracking-widest font-bold">
+                Jose Navarro
+              </h1>
+              <h2 className="font-extralight opacity-70 text-[1.4em] -mt-4">
+                <a
+                  href="https://validaciones.unimagdalena.edu.co/?id=H9*GOTGjWC0!"
+                  target="blank"
+                >
+                  {t("title1")}
+                </a>
+              </h2>
+              <h3 className="opacity-70">Universidad del Magdalena</h3>
+              <h4 className="opacity-70">{t("dategrade")}</h4>
+            </section>
+            <h1 className="md:text-7xl text-5xl md:m-4 md:mb-8 text-start font-(family-name:--font-teko) tracking-wide opacity-70">
+              {t("title")}
+            </h1>
+          </div>
+          <div className="flex flex-col justify-evenly md:p-4  text-[1.2rem] text-justify md:w-[50%] order-2 md:order-1 font-extralight font-(family-name:--font-teko) animate-fade-up animate-delay-[980ms]">
+            <p>{t("description1")}</p>
+            <p>{t("description2")}</p>
+            <p>{t("description3")}</p>
+          </div>
         </section>
-        <section>
-          <h1>educacion</h1>
-          <a href="">Igneniero electrónico</a>
-          <h2>Universidad del Magdalena</h2>
-          <h3>Ago 2019 - Dic 2024</h3>
+        <section className="flex md:flex-row flex-col px-2 md:h-[60rem] pt-12 font-(family-name:--font-bebas) bg-linear-to-b from-teal-500/10 via-transparent via-25% to-purple-500/10 to-95%">
+          <div className=" flex flex-col justify-start md:items-end md:w-[50%] w-full text-start md:px-2 animate-fade-down animate-delay-[900ms]">
+            <h1
+              className="md:text-7xl text-6xl m-4 mb-8 text-start md:w-[50%] font-(family-name:--font-teko) tracking-wide"
+              data-aos="fade-up"
+              data-aos-delay="100"
+              data-aos-duration="800"
+            >
+              {t("experiences")}
+            </h1>
+          </div>
+          <div className="flex flex-col p-4 text-[1.2rem] text-justify md:w-[50%] font-light animate-fade-up animate-delay-[980ms]">
+            <div
+              className={`${expStyle}`}
+              data-aos="fade-up"
+              data-aos-delay="100"
+              data-aos-duration="800"
+            >
+              <h2 className={date_style}>{t("date1")}</h2>
+              <div className={exp_desc}>
+                <h1 className={h1_style}>{t("exp1")}</h1>
+                <p className={p_style}>{t("exp1_descr")}</p>
+
+                <div className="flex flex-row flex-wrap">
+                  {skills.map((skill) => {
+                    return (
+                      <h1 key={skill} className={skillsStyle}>
+                        {skill}
+                      </h1>
+                    );
+                  })}
+                </div>
+              </div>
+            </div>
+
+            <div
+              className={expStyle}
+              data-aos="fade-up"
+              data-aos-delay="100"
+              data-aos-duration="800"
+            >
+              <h2 className={date_style}>{t("date2")}</h2>
+              <div className={exp_desc}>
+                <h1 className={h1_style}>{t("exp2")}</h1>
+                <p className={p_style}>{t("exp2_descr")}</p>
+
+                <div className="flex flex-row flex-wrap">
+                  {skills2.map((skill) => {
+                    return (
+                      <h1 key={skill} className={skillsStyle}>
+                        {skill}
+                      </h1>
+                    );
+                  })}
+                </div>
+              </div>
+            </div>
+          </div>
         </section>
-        <section className="">
-          <h1 className="md:text-7xl text-4xl m-4 mb-8 text-start font-(family-name:--font-teko) tracking-wide">
+        <section className="flex md:flex-row flex-col px-2 md:h-max pt-12 font-(family-name:--font-bebas) bg-linear-to-b from-purple-500/10 to-transparent">
+          <h1
+            className="md:order-2 order-1 md:p-8  md:text-5xl text-6xl md:mb-8 text-start md:w-[50%] font-(family-name:--font-teko) tracking-wide"
+            data-aos="fade-up"
+            data-aos-delay="100"
+            data-aos-duration="800"
+          >
             {t("certificates")}
           </h1>
-          <div className="md:p-4">
+          <div className="md:p-4 md:order-1 -mt-8 order-2 md:w-[50%]">
             {certs.map((cert, index) => {
               return (
-                <motion.div
+                <div
+                  data-aos="zoom-in-up"
+                  data-aos-delay="100"
+                  data-aos-duration="800"
                   key={cert.url}
                   onClick={() =>
                     window.open(cert.url, "_blank", "noopener,noreferrer")
                   }
-                  initial={{ opacity: 0, y: -40 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0 }}
-                  viewport={{ once: true, amount: "all" }}
-                  className={`flex flex-col justify-center items-center md:h-[12rem] h-[24rem] md:w-full
-                    my-4 md:p-2 text-start rounded-md
+                  className={`flex flex-col justify-center items-start md:h-[16rem] h-[24rem] md:w-full
+                    my-4 md:mx-8 md:p-2 text-start rounded-md
                      ${delayClasses[index]} cursor-pointer cursor-interactive transition-all duration-300 group`}
                 >
                   <section
@@ -220,7 +307,7 @@ export default function AboutPage() {
                       );
                     })}
                   </div>
-                </motion.div>
+                </div>
               );
             })}
           </div>

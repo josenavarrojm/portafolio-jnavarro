@@ -6,6 +6,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import Loader from "./loader";
 import { LoaderContext } from "./LoaderContext";
 import CustomCursor from "./CustomCursor";
+import AOSInit from "./AOS_INIT";
 
 export default function ClientLayout({
   children,
@@ -95,6 +96,7 @@ export default function ClientLayout({
             exit={variants[direction].exit}
             transition={{ duration: 0.5, ease: "easeInOut" }}
           >
+            <AOSInit />
             {children}
           </motion.div>
         )}

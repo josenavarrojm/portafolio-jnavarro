@@ -1,4 +1,9 @@
 {
+  "NotFound": {
+    "goback": "Volver a la página de inicio",
+    "sorry": "Lo sentimos, no pudimos encontrar lo que buscas.",
+    "nopage": "Página no encontrada"
+  },
   "HomePage": {
     "name": "Jose Navarro",
     "tagline": "Transformo datos en modelos inteligentes que impulsan decisiones, automatización y valor real.",

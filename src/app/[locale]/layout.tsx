@@ -1,18 +1,5 @@
 import type { Metadata } from "next";
 import { ThemeProvider } from "next-themes";
-import {
-  geistMono,
-  geistSans,
-  anton,
-  bebasNeue,
-  archivoBlack,
-  spaceGrotesk,
-  oswald,
-  leagueSpartan,
-  barlowCondensed,
-  archivoNarrow,
-  teko,
-} from "@/fonts/fonts";
 import "@/app/globals.css";
 import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { notFound } from "next/navigation";
@@ -44,27 +31,15 @@ export default async function LocaleLayout({
   const messages = await getMessages();
 
   return (
-    <html lang={locale} suppressHydrationWarning>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} ${bebasNeue.variable} ${spaceGrotesk.variable} ${anton.variable} ${archivoBlack.variable}
-        ${oswald.variable}
-        ${leagueSpartan.variable}
-        ${barlowCondensed.variable}
-        ${archivoNarrow.variable}
-        ${teko.variable}
-        antialiased`}
-      >
-        <ThemeProvider
-          enableSystem
-          attribute="class"
-          defaultTheme="system"
-          disableTransitionOnChange
-        >
-          <NextIntlClientProvider messages={messages}>
-            <ClientLayout>{children}</ClientLayout>
-          </NextIntlClientProvider>
-        </ThemeProvider>
-      </body>
-    </html>
+    <ThemeProvider
+      enableSystem
+      attribute="class"
+      defaultTheme="system"
+      disableTransitionOnChange
+    >
+      <NextIntlClientProvider messages={messages}>
+        <ClientLayout>{children}</ClientLayout>
+      </NextIntlClientProvider>
+    </ThemeProvider>
   );
 }

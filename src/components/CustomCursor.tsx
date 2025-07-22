@@ -83,7 +83,7 @@ export default function CustomCursor() {
       className={`fixed  z-[9999] pointer-events-none rounded-full
         ${
           hoveringInteractive
-            ? "md:w-8 h-8 md:top-0 md:left-0 md:bg-[rgba(20,20,155,0)] md:shadow-[0px_0px_5px_5px_rgba(200,200,155)] md:backdrop-blur-[2px]"
+            ? "md:w-8 h-8 md:top-0 md:left-0 md:bg-[rgba(20,20,155,0)] md:shadow-[0px_0px_5px_5px_rgba(200,200,155)] md:backdrop-blur-[0px]"
             : "md:w-[1px] md:h-[1px] md:top-0 md:left-0 md:bg-[rgba(254,51,23,0)] md:shadow-[0px_0px_300px_50px_rgba(0,0,255,0.4)]"
         }
         mix-blend-difference transition-all duration-0`}

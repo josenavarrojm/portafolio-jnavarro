@@ -18,6 +18,7 @@ import { useEffect, useState } from "react";
 import NavBar from "@/components/NavBar";
 import GridBackground from "@/components/GridBg";
 import { useLoader } from "@/components/LoaderContext";
+import ChatBot from "@/components/ChatBot";
 
 export default function Page() {
   const { theme, systemTheme } = useTheme();
@@ -38,6 +39,7 @@ export default function Page() {
 
   return (
     <GridBackground>
+      <ChatBot />
       <NavBar />
       <main className="child-main flex flex-col md:flex-row md:justify-around justify-around items-center md:pb-14 pb-[10em] md:w-[90%] w-full h-full">
         <section className="flex flex-col justify-center items-center space-y-4 w-full md:w-[50%] md:h-full">

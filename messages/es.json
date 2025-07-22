@@ -4,6 +4,12 @@
     "sorry": "Lo sentimos, no pudimos encontrar lo que buscas.",
     "nopage": "Página no encontrada"
   },
+  "Chatbot": {
+    "hi": "¡Hola! Soy tu asistente IA personal. ¿Tienes preguntas sobre Jose Navarro, sus proyectos o experiencia? Estoy aquí para ayudarte.",
+    "writing": "Escribiendo...",
+    "write": "Escribe tu mensaje...",
+    "needhelp": "¿Necesitas ayuda?"
+  },
   "HomePage": {
     "name": "Jose Navarro",
     "tagline": "Transformo datos en modelos inteligentes que impulsan decisiones, automatización y valor real.",

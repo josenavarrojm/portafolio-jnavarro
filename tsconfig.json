@@ -22,6 +22,16 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "tailwind.config.ts", "next-i18next.config.js",  "src/middleware.ts"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "tailwind.config.ts",
+    "next-i18next.config.js",
+    "src/middleware.ts",
+    ".next/types/app/[locale]/contact/page.ts",
+    ".next/types/app/[locale]/about/page.ts"
+  ],
   "exclude": ["node_modules"]
 }

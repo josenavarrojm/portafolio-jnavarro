@@ -1,5 +1,5 @@
 "use client";
-import { Link } from "@/i18n/routing";
+import Link from "next/link";
 import "./index.css";
 import {
   BrainCircuit,

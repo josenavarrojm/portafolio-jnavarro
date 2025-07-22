@@ -7,8 +7,8 @@ import ClientLayout from "@/components/ClientLayout";
 import ThemeClientProvider from "@/components/ThemeClientProvider";
 
 export const metadata: Metadata = {
-  title: "Jose Navarro Portfolio",
-  description: "Personal Website of Jose Navarro",
+  title: "Contact me!",
+  description: "Contact ways of Jose Navarro",
 };
 
 export default async function LocaleLayout({

@@ -18,6 +18,7 @@ import { useEffect, useState } from "react";
 import NavBar from "@/components/NavBar";
 import GridBackground from "@/components/GridBg";
 import { useLoader } from "@/components/LoaderContext";
+import { Analytics } from "@vercel/analytics/next";
 import ChatBot from "@/components/ChatBot";
 
 export default function Page() {
@@ -39,6 +40,7 @@ export default function Page() {
 
   return (
     <GridBackground>
+      <Analytics />
       <ChatBot />
       <NavBar />
       <main className="child-main flex flex-col md:flex-row md:justify-around justify-around items-center md:pb-14 pb-[10em] md:w-[90%] w-full h-full">

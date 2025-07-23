@@ -39,7 +39,7 @@ export async function POST(req: Request) {
               - Tiene múltiples certificaciones de IBM, Microsoft, Meta y Wharton School en temas como Machine Learning, React, Azure, y FinTech.
               
               Formación académica:
-              - Universidad: University of Magdalena
+              - Universidad: Universidad del Magdalena, Santa Marta, Colombia
               - Carrera: Ingeniería Electrónica (2019 - 2024)
 
 

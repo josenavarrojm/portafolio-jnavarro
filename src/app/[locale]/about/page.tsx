@@ -7,6 +7,7 @@ import { ArrowRight } from "lucide-react";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function AboutPage() {
   const t = useTranslations("AboutPage");
@@ -25,6 +26,7 @@ export default function AboutPage() {
   const certs = [
     {
       name: "IBM Data Science",
+      jpg: "datascience",
       entity: "IBM",
       url: "https://coursera.org/share/db6a4621fe66c76a4ba7f5a41052c29f",
       skills: [
@@ -44,6 +46,7 @@ export default function AboutPage() {
     },
     {
       name: "Microsoft Azure Data Scientist Associate (DP100) Exam Prep",
+      jpg: "azure",
       entity: "Microsoft",
       url: "https://coursera.org/share/851e517baf2bb42903eb8812f219b014",
       skills: [
@@ -63,6 +66,7 @@ export default function AboutPage() {
     },
     {
       name: "Robotic Process Automation (RPA)",
+      jpg: "uipath",
       entity: "UiPath",
       url: "https://coursera.org/share/15d4c1f022702a3f254958f58343a357",
       skills: [
@@ -82,6 +86,7 @@ export default function AboutPage() {
     },
     {
       name: "Meta Front-End Developer",
+      jpg: "frontend",
       entity: "Meta",
       url: "https://coursera.org/share/8296997d1d83d7fda8bbccc1907e6710",
       skills: [
@@ -101,6 +106,7 @@ export default function AboutPage() {
     },
     {
       name: "Meta React",
+      jpg: "react",
       entity: "Meta",
       url: "https://coursera.org/share/64bb1f5b1c78289b2acc4b7a8d7ab5a4",
       skills: [
@@ -120,6 +126,7 @@ export default function AboutPage() {
     },
     {
       name: "Fintech: Foundations & Applications of Financial Technology",
+      jpg: "fintech",
       entity: "Wharton School of the University of Pennsylvania",
       url: "https://coursera.org/share/36b7262e13fe16e01f368157de0f6c3b",
       skills: [
@@ -271,52 +278,65 @@ export default function AboutPage() {
             {certs.map((cert, index) => {
               return (
                 <div
-                  data-aos="zoom-in-up"
-                  data-aos-delay="50"
-                  data-aos-duration="800"
                   key={cert.url}
+                  // data-aos="zoom-in-up"
+                  // data-aos-delay="50"
+                  // data-aos-duration="800"
                   onClick={() =>
                     window.open(cert.url, "_blank", "noopener,noreferrer")
                   }
-                  className={`flex flex-col justify-center items-start md:h-[16rem] h-[24rem] md:w-full
-                    my-4 md:mx-8 md:p-2 text-start rounded-md
-                     ${delayClasses[index]} cursor-pointer cursor-interactive transition-all duration-300 group`}
+                  className="flex md:flex-row flex-col md:mt-0 mt-12 md:h-max cursor-pointer cursor-interactive md:justify-between justify-center flex-wrap w-full overflow-hidden items-center md:mb-2 md:py-0 py-8 md:px-0 px-2"
                 >
-                  <section
-                    className={`flex flex-col md:w-full w-full md:h-[8rem] h-[5.5em] justify-center items-start px-2 rounded-md ${
-                      isDarkMode
-                      // ? "bg-linear-to-b from-transparent from-0% via-[#9a006543] via-10% group-hover:via-[#6a0045f3] group-hover:from-[#6a0045f3] to-[#0a0a0a00] to-95%"
-                      // : "bg-linear-to-b from-transparent from-0% via-[#b5fffd70] via-10% group-hover:via-[#85fffd] group-hover:from-[#85fffd] to-[#0000] to-95%"
-                    }`}
+                  <div className="relative w-[55%] md:w-[14rem] md:h-[20rem] h-[16rem] overflow-hidden rounded-md">
+                    <Image
+                      src={`/certs/${cert.jpg}.jpg`}
+                      alt={cert.name}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+
+                  <div
+                    className={`flex flex-col justify-center items-start md:h-[28rem] h-[24rem] md:w-[25rem] w-full
+                    md:my-4 md:mr-2 md:p-2 text-start rounded-md
+                     ${delayClasses[index]} cursor-pointer cursor-interactive transition-all duration-300 group`}
                   >
-                    <h1 className="md:text-[0.8rem] text-[0.8em] tracking-widest max-w-full md:mb-0 mb-1 border-b-1 font-(family-name:--font-spaceGrotesk) truncate overflow-hidden whitespace-nowrap">
-                      {cert.entity}
-                    </h1>
-                    <div className="flex flex-row w-full items-center justify-start">
-                      <h1 className=" md:text-[2rem] text-[1.4rem] tracking-wide max-w-full truncate overflow-hidden whitespace-nowrap opacity-70 group-hover:opacity-100">
-                        {cert.name}
+                    <section
+                      className={`flex flex-col md:w-full w-full md:h-[8rem] h-[5.5em] justify-center items-start px-2 rounded-md ${
+                        isDarkMode
+                        // ? "bg-linear-to-b from-transparent from-0% via-[#9a006543] via-10% group-hover:via-[#6a0045f3] group-hover:from-[#6a0045f3] to-[#0a0a0a00] to-95%"
+                        // : "bg-linear-to-b from-transparent from-0% via-[#b5fffd70] via-10% group-hover:via-[#85fffd] group-hover:from-[#85fffd] to-[#0000] to-95%"
+                      }`}
+                    >
+                      <h1 className="md:text-[0.8rem] text-[0.8em] tracking-widest max-w-full md:mb-0 mb-1 border-b-1 font-(family-name:--font-spaceGrotesk) truncate overflow-hidden whitespace-nowrap">
+                        {cert.entity}
                       </h1>
-                      <div className="flex flex-row items-center justify-start transition-transform duration-300 group-hover:-rotate-45 ml-[0.2rem]">
-                        <ArrowRight size={20} />
+                      <div className="flex flex-row w-full items-center justify-start">
+                        <h1 className=" md:text-[2rem] text-[1.4rem] tracking-wide max-w-full truncate overflow-hidden whitespace-nowrap opacity-70 group-hover:opacity-100">
+                          {cert.name}
+                        </h1>
+                        <div className="flex flex-row items-center justify-start transition-transform duration-300 group-hover:-rotate-45 ml-[0.2rem]">
+                          <ArrowRight size={20} />
+                        </div>
                       </div>
-                    </div>
-                  </section>
-                  <div className="flex flex-row flex-wrap mt-4">
-                    {cert.skills.map((skill, idx) => {
-                      return (
-                        <h1
-                          key={idx}
-                          className={`m-2 px-2 py-0.5 w-max rounded-4xl
+                    </section>
+                    <div className="flex flex-row flex-wrap mt-4">
+                      {cert.skills.map((skill, idx) => {
+                        return (
+                          <h1
+                            key={idx}
+                            className={`m-2 px-2 py-0.5 w-max rounded-4xl
                             ${
                               isDarkMode
                                 ? "bg-[#9a006543] group-hover:bg-[#9a0065f3] text-[]"
                                 : "bg-[#b5fffd70] group-hover:bg-[#85fffd] group-hover:text-[#006] text-[#0008]"
                             }   font-light tracking-wider md:text-[0.9rem] text-[0.8rem] font-(family-name:--font-oswald) transition-all duration-75 ease-in-out`}
-                        >
-                          {skill}
-                        </h1>
-                      );
-                    })}
+                          >
+                            {skill}
+                          </h1>
+                        );
+                      })}
+                    </div>
                   </div>
                 </div>
               );
